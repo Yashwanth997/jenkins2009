@@ -1,26 +1,33 @@
-pipeline {
-  
-       agent any
-  stages{
-    stage("build"){
-      steps{
-        echo 'building the given application is successfully completed..'
-      }
-    }
-    stage("test"){
-      steps{
-        echo 'testing the given application is successfully completed..'
-      }
-    }
-    stage("deploy"){
-      steps{
-        echo 'deploying the given application is successfully completed..'
-      }
-    }
-      stage("release"){
-      steps{
-        echo 'releasing the given application is successfully completed..'
-      }
-    }
-  }
+pipeline{
+agent any
+stages 
+{
+stage('Build') 
+{
+steps{
+echo "Building the Code.........."
+bat "mvn clean"
+}
+}
+stage('Test') 
+{
+steps{
+echo "Testing the Code.........."
+bat "mvn test"
+}
+}
+stage('Compile') 
+{
+steps{
+echo "Compiling the Project.........."
+bat "mvn compile"
+}
+}
+stage('Deploy') 
+{
+steps{
+echo "Deploying the Project.........."
+}
+}
+}
 }
